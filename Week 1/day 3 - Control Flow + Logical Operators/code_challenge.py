@@ -125,13 +125,124 @@
 # Example Output 2
 # Not leap year.
 
-year = int(input('Enter year: '))
+# year = int(input('Enter year: '))
 
-if year % 4 == 0:
-  if year % 400 == 0:
-      print(f"{year} is a leap year")
-  elif year % 100 == 0:
-    print(f"{year} is not a leap year")
-  else: print(f"{year} is a leap year")
-else: 
-  print(f"{year} is not a leap year")
+# if year % 4 == 0:
+#   if year % 400 == 0:
+#       print(f"{year} is a leap year")
+#   elif year % 100 == 0:
+#     print(f"{year} is not a leap year")
+#   else: print(f"{year} is a leap year")
+# else: 
+#   print(f"{year} is not a leap year")
+
+#################################################
+
+# Congratulations, you've got a job at Python Pizza. Your first job is to build an automatic pizza order program.
+
+# Based on a user's order, work out their final bill.
+
+# Small Pizza: $15
+# Medium Pizza: $20
+# Large Pizza: $25
+# Pepperoni for Small Pizza: +$2
+# Pepperoni for Medium or Large Pizza: +$3
+# Extra cheese for any size pizza: + $1
+# Example Input
+# size = "L"
+# add_pepperoni = "Y"
+# extra_cheese = "N"
+# Example Output
+# Your final bill is: $28.
+
+# size = input("What size of pizza would you like? S M or L ")
+# pep = input("Would you like pepperoni on your pizza? Y or N ")
+# cheeze = input("Would you like extra cheese on your pizza? Y or N ")
+
+# total = 0
+
+# if size == 'S':
+#   total += 10
+#   if pep == 'Y': total += 2
+#   if cheeze == 'Y': total += 1
+# elif size == 'M':
+#   total += 20
+#   if pep == 'Y': total += 3
+#   if cheeze == 'Y': total += 1
+# else:
+#   total += 25
+#   if pep == 'Y': total += 3
+#   if cheeze == 'Y': total += 1
+
+# print(f"Your total is ${total}")
+
+####################################################################
+
+# You are going to write a program that tests the compatibility between two people.
+
+# To work out the love score between two people:
+
+# Take both people's names and check for the number of times the letters in the word TRUE occurs. Then check for the number of times the letters in the word LOVE occurs. Then combine these numbers to make a 2 digit number.
+
+# For Love Scores less than 10 or greater than 90, the message should be:
+
+# "Your score is **x**, you go together like coke and mentos."
+
+# For Love Scores between 40 and 50, the message should be:
+
+# "Your score is **y**, you are alright together."
+
+# Otherwise, the message will just be their score. e.g.:
+
+# "Your score is **z**."
+
+# e.g.
+
+# name1 = "Angela Yu"
+
+# name2 = "Jack Bauer"
+
+# T occurs 0 times
+
+# R occurs 1 time
+
+# U occurs 2 times
+
+# E occurs 2 times
+
+# Total = 5
+
+# L occurs 1 time
+
+# O occurs 0 times
+
+# V occurs 0 times
+
+# E occurs 2 times
+
+# Total = 3
+
+# Love Score = 53
+
+# Print: "Your score is 53."
+
+# Example Input 1
+# name1 = "Kanye West"
+# name2 = "Kim Kardashian"
+# Example Output 1
+# Your score is 42, you are alright together.
+
+name1 = input('What is your name? ').lower()
+name2 = input('What is their name? ').lower()
+
+your_true = int(name1.count('t')) + int(name1.count('r')) + int(name1.count('u')) + int(name1.count('e'))
+their_love = int(name1.count('l')) + int(name1.count('o')) + int(name1.count('v')) + int(name1.count('e'))
+
+compatibility = int(str(your_true) + str(their_love))
+
+if compatibility > 90 or compatibility < 10:
+  print(f"Your score is {compatibility}, you go together like coke and mentos.")
+elif compatibility > 40 and compatibility < 50:
+  print(f"Your score is {compatibility}, you are alright together.")
+else:
+  print(f"Your score is {compatibility}")
