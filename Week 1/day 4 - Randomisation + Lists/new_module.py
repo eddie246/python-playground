@@ -1,0 +1,1 @@
+message = 'This is a message from new_module.py; You have succesfully imported it.'
