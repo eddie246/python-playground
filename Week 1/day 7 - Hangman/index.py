@@ -1,30 +1,32 @@
 import random
-#Step 1 
+import assets
+import wordbank
 
-word_list = ["aardvark", "baboon", "camel"]
+print(f'{assets.logo}\nWelcome to Handman!')
 
-#TODO-1 - Randomly choose a word from the word_list and assign it to a variable called chosen_word.
-
-chosen_word = random.choice(word_list) 
-
-#TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
-
-
-
-#TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
+chosen_word = random.choice(wordbank.word_list) 
 
 curr_guess = []
-print(chosen_word)
+curr_lives = 6
 
-for letter in chosen_word:
+for _ in chosen_word:
   curr_guess.append('_')
 
-curr_word = ' '.join(curr_guess)
-
-while (curr_word != chosen_word):
-  print(' '.join(curr_guess))
-  guess = input('Enter a random letter: ').lower()
+while (''.join(curr_guess) != chosen_word):
+  guess = input(f'You have {curr_lives} lives. Enter a random letter: ').lower()
   for number in range(0, len(chosen_word)):
     if chosen_word[number] == guess:
       curr_guess[number] = guess
+      print(assets.stages[curr_lives])
+  if not guess in chosen_word:
+    curr_lives -= 1
+    print(assets.stages[curr_lives])
+    if curr_lives < 1:
+      print(f'You Ran Out of Lives. You Lost! The Word Was: {chosen_word}')
+      break
+  
+  print(' '.join(curr_guess))
+
+if not '_' in curr_guess:
+  print(f'You won! the word was: {chosen_word}')
 
