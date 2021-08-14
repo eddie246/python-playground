@@ -12,7 +12,7 @@ class Snake:
   def make_body(self):
     body = Turtle()
     body.shape('square')
-    body.color('white')
+    body.color('white', 'green')
     body.penup()
     if (len(self.snake_body) == 0):
       body.goto(0, 0)
